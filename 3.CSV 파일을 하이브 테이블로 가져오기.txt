@@ -1,0 +1,64 @@
+[Hive 실행]
+hive
+
+[외부 테이블 만들기]
+create external table if not exists names_text(
+employeeid int,
+firstname string,
+title string,
+state string,
+laptop string)
+comment 'Employee Names'
+row format delimited
+fields terminated by ','
+stored as textfile
+location '/user/root/names';
+
+create external table if not exists 테이블명
+(컬럼명 자료형...)
+comment '설명문'
+row format delimited
+fields terminated by ','
+stored as textfile
+location '파일위치';
+
+[외부 테이블 정보 조회]
+select * from names_text;
+
+select employeeid, title from names_text;
+
+[내부 테이블 만들기]
+create table if not exists names(
+employeeid int,
+firstname string,
+title string,
+state string,
+laptop string)
+comment 'Employee Names'
+row format delimited
+fields terminated by ','
+stored as orc;
+
+[내부 테이블로 데이터 저장하기]
+insert overwrite table names select * from names_text;
+
+select * from names;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

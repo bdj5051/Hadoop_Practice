@@ -1,0 +1,13 @@
+sandbox 종료과정
+
+1. localhost:1080에 들어가서 dashboard 를띄우고
+   좌측 아래에 있는 action에서 stop all을 클릭해서
+   모든 서비스를 중지시킨다.
+
+2. putty로 접속해서 다음과 같이 입력해서 ambari 서버를
+   중지시킨다.
+
+   ambari-server stop
+
+[sandbox 가동......]
+1. 그냥 냅두시면 알아서 다 실행됩니다.

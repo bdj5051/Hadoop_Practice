@@ -1,0 +1,15 @@
+[hdfs에 디렉토리 만들기]
+
+hdfs dfs -mkdir 이름
+
+[hdfs 목록 조회]
+
+hdfs dfs -ls
+
+[로컬 컴퓨터의 파일을 hdfs에 업로드 하기]
+
+hdfs dfs -put 파일명
+
+[hdfs의 파일을 로컬 컴퓨터에 다운받기]
+
+hdfs dfs -get 파일명

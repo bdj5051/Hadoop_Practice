@@ -1,0 +1,59 @@
+[데이터베이스 목록 조회]
+
+sqoop list-databases --connect 접속url정보 --username 계정명 --password 비밀번호
+
+sqoop list-databases --connect jdbc:mysql://localhost --username root --password hortonworks1
+
+[테이블 목록 조회]
+sqoop list-tables --connect 접속url정보/데이터베이스명 --username 계정명 --password 비밀번호
+
+sqoop list-tables --connect jdbc:mysql://localhost/world --username root --password hortonworks1 
+
+-------------------------------------------------------
+
+[mysql에서 읽어온 데이터를 적재할 디렉토리 생성]
+
+hdfs dfs -mkdir sqoop-mysql-import
+hdfs dfs -ls
+
+[mysql 테이블에 저장된 데이터를 hdfs에 파일로 가져온다]
+
+sqoop import --connect jdbc:mysql://localhost/world --username root --password hortonworks1 --table Country -m 1 --target-dir /user/root/sqoop-mysql-import/country
+
+hdfs dfs -ls sqoop-mysql-import
+hdfs dfs -ls sqoop-mysql-import/country
+
+hdfs dfs -cat sqoop-mysql-import/country/part-m-00000
+
+[접속 정보 파일을 이용해 hdfs에 파일로 가져온다]
+
+vi world-options.txt
+
+:q! : 저장없이 그냥 나가기
+:wq : 저장후 나가기
+
+vi 에디터 실행 후 insert를 누르면 입력 가능
+
+
+import
+--connect
+jdbc:mysql://localhost/world
+--username
+root
+--password
+hortonworks1
+
+저장후 명령어 실행
+sqoop --options-file world-options.txt --table City -m 1 --target-dir /user/root/sqoop-mysql-import/city 
+
+hdfs dfs -ls sqoop-mysql-import
+hdfs dfs -ls sqoop-mysql-import/city
+
+
+
+
+
+
+
+
+

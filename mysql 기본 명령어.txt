@@ -1,0 +1,74 @@
+[mysql 접속]
+
+mysql -u 계정명 -p
+
+mysql -u root -p
+
+[데이터 베이스 확인]
+show databases;
+
+[데이터 베이스 만들기]
+create database 데이터베이스이름;
+
+create database test_db;
+
+[데이터베이스 선택]
+use 데이터베이스명
+
+use test_db;
+
+[데이블 생성]
+create table 테이블명(
+컬럼리스트...
+)
+
+create table test_table(
+test_idx int not null,
+test_text char(10) not null
+);
+
+[테이블 목록 조회]
+show tables;
+
+[테이블 정보 조회]
+desc 테이블명;
+desc test_table;
+
+[테이블에 데이터 저장]
+insert into 테이블명
+(컬럼명 들) values (값들)
+
+insert into test_table
+(test_idx, test_text) values (0, 'string1');
+
+insert into test_table
+(test_idx, test_text) values (1, 'string2');
+
+insert into test_table
+(test_idx, test_text) values (2, 'string3');
+
+commit;
+
+[데이터를 가져온다]
+
+select * from 테이블명
+
+select * from test_table;
+select test_idx, test_text from test_table;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

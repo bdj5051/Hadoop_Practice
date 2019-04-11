@@ -1,0 +1,8 @@
+[names.csv 파일을 hdfs에 업로드한다]
+
+hdfs dfs -mkdir names
+hdfs dfs -ls
+hdfs dfs -ls names
+
+hdfs dfs -put names.csv names
+hdfs dfs -ls names
